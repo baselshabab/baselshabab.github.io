@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Basel Ahmad Shabab is a Ph.D. student and Graduate Research Assistant at Virginia Tech specializing in wellbore integrity, underground hydrogen storage, CCUS, and subsurface materials."
+  />
+
+  <meta
+    name="keywords"
+    content="Basel Ahmad Shabab, Virginia Tech, Mining Engineering, Underground Hydrogen Storage, Wellbore Integrity, CCUS, Cement, Experimental Geomechanics"
+  />
+
+  <meta name="author" content="Basel Ahmad Shabab" />
+  <meta name="theme-color" content="#0b1f33" />
+
+  <title>Basel Ahmad Shabab | Research Portfolio</title>
+
+  <style>
+    /* =========================================================
+       1. DESIGN TOKENS
+       ========================================================= */
+
+    :root {
+      --color-primary: #0b1f33;
+      --color-primary-soft: #163653;
+      --color-secondary: #b87333;
+      --color-secondary-dark: #925821;
+      --color-accent: #2b7a78;
+
+      --color-background: #f5f7fa;
+      --color-surface: #ffffff;
+      --color-surface-muted: #edf2f6;
+
+      --color-text: #17212b;
+      --color-text-muted: #5c6975;
+      --color-border: #d9e1e8;
+
+      --color-success: #217a57;
+      --color-focus: #4b9fff;
+
+      --shadow-sm: 0 6px 20px rgba(11, 31, 51, 0.07);
+      --shadow-md: 0 16px 40px rgba(11, 31, 51, 0.11);
+      --shadow-lg: 0 24px 70px rgba(11, 31, 51, 0.16);
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 30px;
+
+      --container-width: 1180px;
+      --header-height: 76px;
+
+      --transition-fast: 180ms ease;
+      --transition-normal: 280ms ease;
+    }
+
+    body.dark-theme {
+      --color-primary: #071524;
+      --color-primary-soft: #132c43;
+      --color-secondary: #d49558;
+      --color-secondary-dark: #eca863;
+      --color-accent: #56b8b2;
+
+      --color-background: #08131e;
+      --color-surface: #0f2131;
+      --color-surface-muted: #142b3e;
+
+      --color-text: #eef5fa;
+      --color-text-muted: #aec0ce;
+      --color-border: #294154;
+
+      --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.28);
+      --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    /* =========================================================
+       2. RESET AND BASE
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 24px);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--color-background);
+      color: var(--color-text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+      transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--color-text);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      color: var(--color-text-muted);
+    }
+
+    ::selection {
+      background: var(--color-secondary);
+      color: #ffffff;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 4px;
+    }
+
+    /* =========================================================
+       3. SHARED LAYOUT
+       ========================================================= */
+
+    .container {
+      width: min(calc(100% - 40px), var(--container-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 104px 0;
+    }
+
+    .section--muted {
+      background: var(--color-surface-muted);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading__eyebrow,
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-secondary-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-heading__eyebrow::before,
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    .section-heading h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .section-heading p {
+      max-width: 690px;
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--color-primary);
+      color: #ffffff;
+      transform: translateY(-160%);
+      transition: transform var(--transition-fast);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       4. BUTTONS
+       ========================================================= */
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 750;
+      transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      background: var(--color-secondary);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(184, 115, 51, 0.24);
+    }
+
+    .button--primary:hover {
+      background: var(--color-secondary-dark);
+      box-shadow: 0 14px 34px rgba(184, 115, 51, 0.3);
+    }
+
+    .button--secondary {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+    }
+
+    .button--secondary:hover {
+      border-color: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .button--outline {
+      border-color: var(--color-border);
+      background: transparent;
+      color: var(--color-text);
+    }
+
+    .button--outline:hover {
+      border-color: var(--color-secondary);
+      color: var(--color-secondary-dark);
+    }
+
+    .button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    /* =========================================================
+       5. HEADER AND NAVIGATION
+       ========================================================= */
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: var(--header-height);
+      border-bottom: 1px solid transparent;
+      transition:
+        background-color var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+    }
+
+    .site-header.scrolled {
+      border-color: var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1002;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+
+    .site-header.scrolled .brand {
+      color: var(--color-text);
+    }
+
+    .brand__mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(10px);
+    }
+
+    .site-header.scrolled .brand__mark {
+      border-color: var(--color-border);
+      background: var(--color-primary);
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand__text small {
+      margin-top: 4px;
+      color: inherit;
+      font-size: 0.68rem;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu a {
+      position: relative;
+      padding: 9px 12px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: color var(--transition-fast);
+    }
+
+    .site-header.scrolled .nav-menu a {
+      color: var(--color-text-muted);
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active,
+    .site-header.scrolled .nav-menu a:hover,
+    .site-header.scrolled .nav-menu a.active {
+      color: var(--color-secondary);
+    }
+
+    .nav-menu a::after {
+      position: absolute;
+      right: 12px;
+      bottom: 3px;
+      left: 12px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-secondary);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      transform: scaleX(1);
+    }
+
+    .header-actions {
+      position: relative;
+      z-index: 1002;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+      cursor: pointer;
+      transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .icon-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .site-header.scrolled .icon-button {
+      border-color: var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .icon-button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* =========================================================
+       6. HERO
+       ========================================================= */
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 820px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          115deg,
+          rgba(5, 18, 31, 0.98),
+          rgba(11, 31, 51, 0.95) 48%,
+          rgba(22, 54, 83, 0.88)
+        );
+      color: #ffffff;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(43, 122, 120, 0.24),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(184, 115, 51, 0.18),
+          transparent 28%
+        );
+      content: "";
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      content: "";
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    .hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .hero__orb--one {
+      top: 12%;
+      right: 5%;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero__orb--two {
+      right: 20%;
+      bottom: 8%;
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(184, 115, 51, 0.3);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: 100%;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+      align-items: center;
+      gap: 72px;
+      padding-top: var(--header-height);
+    }
+
+    .hero__copy {
+      max-width: 780px;
+      padding: 80px 0;
+    }
+
+    .hero .eyebrow {
+      color: #dba165;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin-bottom: 26px;
+      color: #ffffff;
+      font-size: clamp(3.1rem, 7vw, 6.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 10px;
+      color: #dba165;
+    }
+
+    .hero__lead {
+      max-width: 720px;
+      margin-bottom: 34px;
+      color: rgba(255, 255, 255, 0.77);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.75;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+
+    .hero__facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero__facts li {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .hero__facts svg {
+      width: 17px;
+      height: 17px;
+      color: #dba165;
+    }
+
+    .profile-placeholder {
+      position: relative;
+      width: min(100%, 430px);
+      margin-inline: auto;
+    }
+
+    .profile-placeholder::before {
+      position: absolute;
+      inset: -18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 38px;
+      content: "";
+      transform: rotate(4deg);
+    }
+
+    .profile-placeholder__frame {
+      position: relative;
+      display: grid;
+      min-height: 510px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.14),
+          rgba(255, 255, 255, 0.04)
+        );
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(14px);
+    }
+
+    .profile-placeholder__frame::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 45%;
+      background: linear-gradient(to top, rgba(4, 15, 26, 0.8), transparent);
+      content: "";
+    }
+
+    .profile-placeholder__content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      max-width: 250px;
+      place-items: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .profile-placeholder__icon {
+      display: grid;
+      width: 110px;
+      height: 110px;
+      margin-bottom: 22px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .profile-placeholder__icon svg {
+      width: 52px;
+      height: 52px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .profile-placeholder__content strong {
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 1.08rem;
+    }
+
+    .profile-placeholder__content span {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.88rem;
+    }
+
+    .profile-placeholder__label {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      z-index: 3;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(5, 18, 31, 0.7);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+    }
+
+    .scroll-indicator__line {
+      position: relative;
+      width: 46px;
+      height: 1px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .scroll-indicator__line::after {
+      position: absolute;
+      inset: 0;
+      background: #dba165;
+      content: "";
+      animation: scroll-line 2s infinite ease-in-out;
+      transform: translateX(-100%);
+    }
+
+    @keyframes scroll-line {
+      50%,
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    /* =========================================================
+       7. ABOUT
+       ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
+      gap: 64px;
+    }
+
+    .about-copy p {
+      margin-bottom: 20px;
+      font-size: 1.04rem;
+    }
+
+    .about-copy p:first-child {
+      color: var(--color-text);
+      font-size: 1.2rem;
+      font-weight: 650;
+    }
+
+    .about-sidebar {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 25px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-card__icon {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 16px;
+      place-items: center;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+      color: var(--color-secondary-dark);
+    }
+
+    .info-card__icon svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .info-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .info-card p {
+      margin-bottom: 0;
+      font-size: 0.93rem;
+    }
+
+    /* =========================================================
+       8. RESEARCH AREAS
+       ========================================================= */
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .research-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+    }
+
+    .research-card:hover {
+      border-color: color-mix(
+        in srgb,
+        var(--color-secondary) 55%,
+        var(--color-border)
+      );
+      box-shadow: var(--shadow-md);
+      transform: translateY(-7px);
+    }
+
+    .research-card::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 0 0 0 100%;
+      background: color-mix(
+        in srgb,
+        var(--color-secondary) 9%,
+        transparent
+      );
+      content: "";
+    }
+
+    .research-card__number {
+      display: inline-flex;
+      margin-bottom: 48px;
+      color: var(--color-secondary-dark);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+    }
+
+    .research-card h3 {
+      margin-bottom: 16px;
+      font-size: 1.35rem;
+    }
+
+    .research-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .research-card__arrow {
+      position: absolute;
+      right: 26px;
+      bottom: 24px;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      color: var(--color-secondary-dark);
+      transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .research-card:hover .research-card__arrow {
+      background: var(--color-secondary);
+      color: #ffffff;
+      transform: rotate(45deg);
+    }
+
+    .research-card__arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* =========================================================
+       9. METHODS
+       ========================================================= */
+
+    .methods-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      align-items: start;
+      gap: 64px;
+    }
+
+    .methods-intro {
+      position: sticky;
+      top: calc(var(--header-height) + 30px);
+    }
+
+    .methods-intro h2 {
+      margin-bottom: 20px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .methods-intro p {
+      margin-bottom: 28px;
+    }
+
+    .methods-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .method-group {
+      padding: 26px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .method-group__header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .method-group__icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+
+    .method-group__icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .method-group h3 {
+      margin-bottom: 0;
+      font-size: 1.12rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      padding: 7px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-surface-muted);
+      color: var(--color-text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       10. EXPERIENCE
+       ========================================================= */
+
+    .timeline {
+      position: relative;
+      max-width: 920px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 15px;
+      width: 2px;
+      background: var(--color-border);
+      content: "";
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 24px;
+      padding-bottom: 38px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item__marker {
+      position: relative;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      border: 8px solid var(--color-surface-muted);
+      border-radius: 50%;
+      background: var(--color-secondary);
+      box-shadow: 0 0 0 1px var(--color-border);
+    }
+
+    .timeline-item__content {
+      padding: 26px 28px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-item__meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 20px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item__meta span {
+      color: var(--color-secondary-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+      font-size: 1.25rem;
+    }
+
+    .timeline-item h4 {
+      margin-bottom: 15px;
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+    }
+
+    /* =========================================================
+       11. INTERESTS
+       ========================================================= */
+
+    .interests-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 54px;
+      border-radius: var(--radius-lg);
+      background: var(--color-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .interests-panel::before {
+      position: absolute;
+      top: -160px;
+      right: -90px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .interests-panel::after {
+      position: absolute;
+      right: 130px;
+      bottom: -240px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(184, 115, 51, 0.25);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .interests-panel__content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .interests-panel h2 {
+      margin-bottom: 14px;
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .interests-panel p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .interest-tags span {
+      padding: 11px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.88rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    /* =========================================================
+       12. OPPORTUNITIES / CONTACT
+       ========================================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 64px;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 22px;
+      font-size: clamp(2.2rem, 4.5vw, 3.7rem);
+    }
+
+    .contact-copy > p {
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-detail__icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--color-surface-muted);
+      color: var(--color-secondary-dark);
+    }
+
+    .contact-detail__icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .contact-detail small {
+      display: block;
+      margin-bottom: 1px;
+      color: var(--color-text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .contact-detail strong {
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      padding: 34px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--color-text);
+      font-size: 0.85rem;
+      font-weight: 750;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-background);
+      color: var(--color-text);
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background-color var(--transition-fast);
+    }
+
+    .form-field input {
+      height: 48px;
+      padding: 0 14px;
+    }
+
+    .form-field textarea {
+      min-height: 145px;
+      padding: 14px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--color-secondary);
+      background: var(--color-surface);
+      box-shadow: 0 0 0 4px
+        color-mix(in srgb, var(--color-secondary) 15%, transparent);
+    }
+
+    .form-note {
+      margin: 14px 0 0;
+      font-size: 0.78rem;
+    }
+
+    .form-status {
+      display: none;
+      margin: 16px 0 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--color-success) 13%, transparent);
+      color: var(--color-success);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .form-status.visible {
+      display: block;
+    }
+
+    /* =========================================================
+       13. FOOTER
+       ========================================================= */
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-copy p {
+      margin: 4px 0 0;
+      font-size: 0.82rem;
+    }
+
+    .footer-copy strong {
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 9px;
+    }
+
+    .social-link {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      color: var(--color-text-muted);
+      transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .social-link:hover {
+      border-color: var(--color-primary);
+      background: var(--color-primary);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .social-link svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    /* =========================================================
+       14. REVEAL ANIMATIONS
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 100ms;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 200ms;
+    }
+
+    /* =========================================================
+       15. TOAST
+       ========================================================= */
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      max-width: min(360px, calc(100% - 44px));
+      padding: 14px 17px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-surface);
+      color: var(--color-text);
+      box-shadow: var(--shadow-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       16. RESPONSIVE DESIGN
+       ========================================================= */
+
+    @media (max-width: 1020px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero__content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 150px 0 110px;
+      }
+
+      .hero__copy {
+        max-width: 850px;
+        padding: 0;
+      }
+
+      .profile-placeholder {
+        width: min(100%, 520px);
+        margin-top: 24px;
+      }
+
+      .profile-placeholder__frame {
+        min-height: 420px;
+      }
+
+      .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .methods-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .methods-intro {
+        position: static;
+      }
+
+      .interests-panel__content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-toggle {
+        display: grid;
+      }
+
+      .nav-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        padding: 90px 32px 40px;
+        background: var(--color-primary);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition:
+          opacity var(--transition-normal),
+          transform var(--transition-normal);
+      }
+
+      .nav-menu.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-menu a,
+      .site-header.scrolled .nav-menu a {
+        width: 100%;
+        padding: 12px 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.55rem;
+      }
+
+      .nav-menu a::after {
+        right: auto;
+        bottom: 5px;
+        left: 0;
+        width: 44px;
+      }
+
+      .site-header.menu-active {
+        background: var(--color-primary);
+      }
+
+      .site-header.menu-active .brand {
+        color: #ffffff;
+      }
+
+      .site-header.menu-active .brand__mark {
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .site-header.menu-active .icon-button {
+        border-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.09);
+        color: #ffffff;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-sidebar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --header-height: 68px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--container-width));
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .brand__text {
+        display: none;
+      }
+
+      .hero__content {
+        padding: 128px 0 100px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 14vw, 4.2rem);
+      }
+
+      .hero__lead {
+        font-size: 1rem;
+      }
+
+      .hero__actions {
+        display: grid;
+      }
+
+      .hero__actions .button {
+        width: 100%;
+      }
+
+      .profile-placeholder__frame {
+        min-height: 360px;
+      }
+
+      .research-grid,
+      .about-sidebar,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-card {
+        min-height: 290px;
+      }
+
+      .form-field--full {
+        grid-column: auto;
+      }
+
+      .interests-panel {
+        padding: 36px 24px;
+      }
+
+      .contact-form {
+        padding: 24px 18px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Basel Ahmad Shabab home">
+        <span class="brand__mark" aria-hidden="true">BAS</span>
+
+        <span class="brand__text">
+          Basel Ahmad Shabab
+          <small>Research Portfolio</small>
+        </span>
+      </a>
+
+      <nav
+        class="nav-menu"
+        id="nav-menu"
+        aria-label="Primary navigation"
+      >
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#methods">Methods</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          class="icon-button"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark theme"
+          title="Toggle theme"
+        >
+          <svg
+            id="theme-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.42 1.42"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.42"></path>
+          </svg>
+        </button>
+
+        <button
+          class="icon-button menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <svg
+            id="menu-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero" id="home">
+      <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__copy">
+          <span class="eyebrow">Subsurface Energy Research</span>
+
+          <h1>
+            Basel Ahmad
+            <span>Shabab</span>
+          </h1>
+
+          <p class="hero__lead">
+            Ph.D. student and Graduate Research Assistant in Mining &amp;
+            Minerals Engineering at Virginia Tech, specializing in wellbore
+            integrity and subsurface materials performance for underground
+            hydrogen storage and energy-transition applications.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#research">
+              Explore my research
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+
+            <button
+              class="button button--secondary"
+              id="resume-button"
+              type="button"
+            >
+              Résumé placeholder
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12"></path>
+                <path d="m7 10 5 5 5-5"></path>
+                <path d="M5 21h14"></path>
+              </svg>
+            </button>
+          </div>
+
+          <ul class="hero__facts">
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path>
+                <circle cx="12" cy="10" r="2.4"></circle>
+              </svg>
+
+              Blacksburg, Virginia
+            </li>
+
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="m3 10 9-5 9 5-9 5-9-5Z"></path>
+                <path d="M7 12.2V17c3 2 7 2 10 0v-4.8"></path>
+              </svg>
+
+              Virginia Tech
+            </li>
+
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M4 5h16v14H4z"></path>
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+
+              Open to research opportunities
+            </li>
+          </ul>
+        </div>
+
+        <div class="profile-placeholder" aria-label="Profile photo placeholder">
+          <div class="profile-placeholder__frame">
+            <!--
+              TO ADD YOUR PHOTO LATER:
+
+              Replace the profile-placeholder__content div below with:
+
+              <img
+                src="images/basel-profile.jpg"
+                alt="Basel Ahmad Shabab"
+                style="width:100%; height:100%; object-fit:cover;"
+              >
+            -->
+
+            <div class="profile-placeholder__content">
+              <div class="profile-placeholder__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M4.5 21a7.5 7.5 0 0 1 15 0"></path>
+                </svg>
+              </div>
+
+              <strong>Professional photograph</strong>
+              <span>Replace this area with your portrait later</span>
+            </div>
+
+            <span class="profile-placeholder__label">
+              Photo placeholder
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-indicator__line"></span>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-heading__eyebrow">About me</span>
+
+          <h2>
+            Investigating materials that protect subsurface energy systems
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              I am a Ph.D. student in Mining &amp; Minerals Engineering at
+              Virginia Tech, specializing in wellbore integrity and subsurface
+              materials performance for underground hydrogen storage and
+              energy-transition applications.
+            </p>
+
+            <p>
+              My research examines the mechanical, microstructural, and
+              chemical evolution of Class H wellbore cement under
+              high-pressure hydrogen exposure using field-retrieved formation
+              waters.
+            </p>
+
+            <p>
+              I integrate experimental characterization—including
+              porosity–permeability measurements, tensile and compressive
+              strength testing, and fracture mechanics—with advanced
+              analytical techniques such as SEM-EDS, XRD, XRF, TGA, ICP-MS,
+              and micro-CT.
+            </p>
+
+            <p>
+              My broader goal is to understand cement degradation, pore
+              network evolution, and hydrogen transport pathways that may
+              affect legacy wells in depleted gas reservoirs.
+            </p>
+
+            <p>
+              I enjoy working across mining, petroleum, geomechanics, and
+              materials-science disciplines to address technically complex
+              energy challenges with rigorous experimental evidence.
+            </p>
+          </div>
+
+          <aside class="about-sidebar" aria-label="Professional highlights">
+            <article class="info-card reveal reveal-delay-1">
+              <div class="info-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 3h6"></path>
+                  <path d="M10 9h4"></path>
+                  <path d="M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3"></path>
+                  <path d="M7.5 15h9"></path>
+                </svg>
+              </div>
+
+              <h3>Experimental research</h3>
+
+              <p>
+                Laboratory investigation of cement performance under
+                representative subsurface chemical and pressure conditions.
+              </p>
+            </article>
+
+            <article class="info-card reveal reveal-delay-2">
+              <div class="info-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 19V9"></path>
+                  <path d="M10 19V5"></path>
+                  <path d="M16 19v-7"></path>
+                  <path d="M22 19V3"></path>
+                  <path d="M2 19h22"></path>
+                </svg>
+              </div>
+
+              <h3>Quantitative analysis</h3>
+
+              <p>
+                Interpretation of multi-scale mechanical, chemical, imaging,
+                and transport data.
+              </p>
+            </article>
+
+            <article class="info-card reveal reveal-delay-1">
+              <div class="info-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="8" cy="8" r="3"></circle>
+                  <circle cx="17" cy="7" r="2.5"></circle>
+                  <path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path>
+                  <path d="M14 15.5a4.5 4.5 0 0 1 7.5 3.4"></path>
+                </svg>
+              </div>
+
+              <h3>Interdisciplinary work</h3>
+
+              <p>
+                Collaboration across mining, petroleum engineering,
+                geomechanics, and subsurface materials research.
+              </p>
+            </article>
+
+            <article class="info-card reveal reveal-delay-2">
+              <div class="info-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2v20"></path>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+
+              <h3>Energy transition</h3>
+
+              <p>
+                Research supporting hydrogen storage, carbon sequestration,
+                and long-term well integrity.
+              </p>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         RESEARCH
+         ===================================================== -->
+
+    <section class="section section--muted" id="research">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-heading__eyebrow">Research areas</span>
+
+          <h2>Core research themes</h2>
+
+          <p>
+            My research connects material behavior at the microstructural
+            scale with the long-term performance of wells and subsurface
+            storage systems.
+          </p>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card reveal">
+            <span class="research-card__number">01</span>
+
+            <h3>Underground hydrogen storage</h3>
+
+            <p>
+              Evaluating material compatibility and transport behavior under
+              high-pressure hydrogen exposure in depleted reservoir
+              environments.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+
+          <article class="research-card reveal reveal-delay-1">
+            <span class="research-card__number">02</span>
+
+            <h3>Wellbore integrity</h3>
+
+            <p>
+              Understanding how legacy well materials respond to new
+              pressure, chemical, and operational conditions associated with
+              subsurface energy storage.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+
+          <article class="research-card reveal reveal-delay-2">
+            <span class="research-card__number">03</span>
+
+            <h3>Cement degradation</h3>
+
+            <p>
+              Investigating the mechanical, microstructural, and chemical
+              evolution of Class H cement after exposure to hydrogen and
+              formation waters.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+
+          <article class="research-card reveal">
+            <span class="research-card__number">04</span>
+
+            <h3>Pore network evolution</h3>
+
+            <p>
+              Connecting changes in pore geometry, connectivity, porosity,
+              and permeability with potential hydrogen migration pathways.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+
+          <article class="research-card reveal reveal-delay-1">
+            <span class="research-card__number">05</span>
+
+            <h3>Rock–cement interfaces</h3>
+
+            <p>
+              Examining material interactions and interface performance that
+              influence sealing behavior and subsurface containment.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+
+          <article class="research-card reveal reveal-delay-2">
+            <span class="research-card__number">06</span>
+
+            <h3>CCUS and energy transition</h3>
+
+            <p>
+              Applying subsurface engineering principles to carbon
+              sequestration, hydrogen storage, and responsible repurposing of
+              existing infrastructure.
+            </p>
+
+            <span class="research-card__arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 19 19 5"></path>
+                <path d="M9 5h10v10"></path>
+              </svg>
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         METHODS
+         ===================================================== -->
+
+    <section class="section" id="methods">
+      <div class="container methods-layout">
+        <div class="methods-intro reveal">
+          <span class="section-heading__eyebrow">Technical capabilities</span>
+
+          <h2>Integrated experimental characterization</h2>
+
+          <p>
+            I combine mechanical testing, transport measurements, imaging,
+            mineralogical analysis, and chemical characterization to evaluate
+            material evolution across multiple scales.
+          </p>
+
+          <a class="button button--outline" href="#contact">
+            Discuss collaboration
+          </a>
+        </div>
+
+        <div class="methods-list">
+          <article class="method-group reveal">
+            <div class="method-group__header">
+              <span class="method-group__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 18h16"></path>
+                  <path d="M6 15 9 6l3 9 3-6 3 6"></path>
+                </svg>
+              </span>
+
+              <h3>Mechanical characterization</h3>
+            </div>
+
+            <ul class="tag-list">
+              <li>Compressive strength</li>
+              <li>Tensile strength</li>
+              <li>Fracture mechanics</li>
+              <li>Failure analysis</li>
+              <li>Experimental geomechanics</li>
+            </ul>
+          </article>
+
+          <article class="method-group reveal">
+            <div class="method-group__header">
+              <span class="method-group__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <circle cx="9" cy="10" r="1"></circle>
+                  <circle cx="15" cy="8" r="1"></circle>
+                  <circle cx="14" cy="15" r="1"></circle>
+                  <circle cx="8" cy="16" r="1"></circle>
+                </svg>
+              </span>
+
+              <h3>Transport and pore structure</h3>
+            </div>
+
+            <ul class="tag-list">
+              <li>Porosity</li>
+              <li>Permeability</li>
+              <li>Pore connectivity</li>
+              <li>Hydrogen pathways</li>
+              <li>Micro-CT</li>
+            </ul>
+          </article>
+
+          <article class="method-group reveal">
+            <div class="method-group__header">
+              <span class="method-group__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 20h14"></path>
+                  <path d="M7 16h10"></path>
+                  <path d="m9 16 1-8h4l1 8"></path>
+                  <path d="M9 8h6"></path>
+                  <path d="M10 4h4"></path>
+                </svg>
+              </span>
+
+              <h3>Microstructure and mineralogy</h3>
+            </div>
+
+            <ul class="tag-list">
+              <li>SEM-EDS</li>
+              <li>XRD</li>
+              <li>XRF</li>
+              <li>TGA</li>
+              <li>Phase evolution</li>
+            </ul>
+          </article>
+
+          <article class="method-group reveal">
+            <div class="method-group__header">
+              <span class="method-group__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M10 2h4"></path>
+                  <path d="M10 2v6l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V2"></path>
+                  <path d="M8 14h8"></path>
+                </svg>
+              </span>
+
+              <h3>Chemical characterization</h3>
+            </div>
+
+            <ul class="tag-list">
+              <li>ICP-MS</li>
+              <li>Formation water chemistry</li>
+              <li>Elemental analysis</li>
+              <li>Leaching behavior</li>
+              <li>Chemical degradation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EXPERIENCE
+         ===================================================== -->
+
+    <section class="section section--muted" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-heading__eyebrow">Experience</span>
+
+          <h2>Research and professional development</h2>
+
+          <p>
+            Experience spanning laboratory research, interdisciplinary
+            collaboration, economic analysis, and subsurface energy systems.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+
+            <div class="timeline-item__content">
+              <div class="timeline-item__meta">
+                <span>Current</span>
+                <span>Blacksburg, Virginia</span>
+              </div>
+
+              <h3>Graduate Research Assistant</h3>
+
+              <h4>
+                Virginia Tech · Mining &amp; Minerals Engineering Department
+              </h4>
+
+              <p>
+                Conducting doctoral research on Class H wellbore cement under
+                high-pressure hydrogen exposure and field-retrieved formation
+                waters, with emphasis on well integrity, degradation
+                mechanisms, pore evolution, and hydrogen transport.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+
+            <div class="timeline-item__content">
+              <div class="timeline-item__meta">
+                <span>Doctoral research</span>
+                <span>Interdisciplinary collaboration</span>
+              </div>
+
+              <h3>Subsurface Materials Researcher</h3>
+
+              <h4>
+                Mining · Petroleum · Geomechanics · Materials Characterization
+              </h4>
+
+              <p>
+                Integrating mechanical, chemical, mineralogical, and imaging
+                methods while contributing to collaborative and peer-reviewed
+                research on cemented systems in subsurface environments.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+
+            <div class="timeline-item__content">
+              <div class="timeline-item__meta">
+                <span>Previous experience</span>
+                <span>Virtual internship</span>
+              </div>
+
+              <h3>Economic Analyst</h3>
+
+              <h4>SEG Evolve Program · Gulf of Mexico CO₂ Sequestration</h4>
+
+              <p>
+                Evaluated economic considerations associated with offshore
+                CO₂ sequestration projects, strengthening my interest in CCUS,
+                subsurface energy storage, and responsible energy-transition
+                development.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         INTERESTS
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="interests-panel reveal">
+          <div class="interests-panel__content">
+            <div>
+              <span class="eyebrow">Research interests</span>
+
+              <h2>Building safer subsurface energy systems</h2>
+
+              <p>
+                Areas where my experimental background and research interests
+                intersect.
+              </p>
+            </div>
+
+            <div class="interest-tags" aria-label="Research interest list">
+              <span>Underground hydrogen storage</span>
+              <span>Wellbore integrity</span>
+              <span>CCUS</span>
+              <span>Cement systems</span>
+              <span>Rock–cement interfaces</span>
+              <span>Subsurface materials</span>
+              <span>Energy transition</span>
+              <span>Experimental geomechanics</span>
+              <span>Legacy wells</span>
+              <span>Hydrogen transport</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="section-heading__eyebrow">Contact</span>
+
+          <h2>Let’s advance subsurface energy technology</h2>
+
+          <p>
+            I am exploring industry and national laboratory opportunities
+            where I can apply my experience in experimental research, data
+            analysis, and subsurface engineering to hydrogen storage, carbon
+            sequestration, and well integrity management.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path d="M4 5h16v14H4z"></path>
+                  <path d="m4 7 8 6 8-6"></path>
+                </svg>
+              </span>
+
+              <div>
+                <small>Email</small>
+                <strong>your.email@vt.edu</strong>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path>
+                  <circle cx="12" cy="10" r="2.4"></circle>
+                </svg>
+              </span>
+
+              <div>
+                <small>Location</small>
+                <strong>Blacksburg, Virginia, USA</strong>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path d="M8 6h13"></path>
+                  <path d="M8 12h13"></path>
+                  <path d="M8 18h13"></path>
+                  <circle cx="3.5" cy="6" r=".5" fill="currentColor"></circle>
+                  <circle cx="3.5" cy="12" r=".5" fill="currentColor"></circle>
+                  <circle cx="3.5" cy="18" r=".5" fill="currentColor"></circle>
+                </svg>
+              </span>
+
+              <div>
+                <small>Opportunities</small>
+                <strong>Industry · National laboratories · Collaboration</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-1" id="contact-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="organization">Organization</label>
+              <input
+                id="organization"
+                name="organization"
+                type="text"
+                autocomplete="organization"
+                placeholder="University, company, or laboratory"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me about the opportunity or collaboration."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-field form-field--full">
+              <button class="button button--primary" type="submit">
+                Prepare email
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m22 2-7 20-4-9-9-4Z"></path>
+                  <path d="M22 2 11 13"></path>
+                </svg>
+              </button>
+
+              <p class="form-note">
+                Replace the placeholder email address in the JavaScript before
+                publishing.
+              </p>
+
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        <strong>Basel Ahmad Shabab</strong>
+
+        <p>
+          © <span id="current-year"></span> · Subsurface Energy Research
+          Portfolio
+        </p>
+      </div>
+
+      <div class="social-links" aria-label="Social media placeholders">
+        <button
+          class="social-link social-placeholder"
+          type="button"
+          aria-label="LinkedIn profile placeholder"
+          title="LinkedIn placeholder"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M6.5 8.5H3.2V19h3.3V8.5ZM4.85 3A1.93 1.93 0 1 0 4.85 6.86 1.93 1.93 0 0 0 4.85 3ZM19.8 13c0-3.16-1.69-4.63-3.94-4.63a3.4 3.4 0 0 0-3.08 1.69V8.5H9.5V19h3.28v-5.2c0-1.37.26-2.7 1.96-2.7 1.68 0 1.7 1.57 1.7 2.79V19h3.28L19.8 13Z"></path>
+          </svg>
+        </button>
+
+        <button
+          class="social-link social-placeholder"
+          type="button"
+          aria-label="Google Scholar profile placeholder"
+          title="Google Scholar placeholder"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m2 9 10-6 10 6-10 6L2 9Z"></path>
+            <path d="M6 12.5V17c3.3 2.2 8.7 2.2 12 0v-4.5"></path>
+            <path d="M22 9v6"></path>
+          </svg>
+        </button>
+
+        <button
+          class="social-link social-placeholder"
+          type="button"
+          aria-label="ResearchGate profile placeholder"
+          title="ResearchGate placeholder"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M8.5 16V8h3.8a2.5 2.5 0 0 1 0 5H8.5"></path>
+            <path d="m12 13 3.5 3"></path>
+          </svg>
+        </button>
+
+        <button
+          class="social-link social-placeholder"
+          type="button"
+          aria-label="GitHub profile placeholder"
+          title="GitHub placeholder"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.22c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.04 1.77 2.71 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    /* =========================================================
+       CONFIGURATION
+       Replace these values before publishing.
+       ========================================================= */
+
+    const SITE_CONFIG = Object.freeze({
+      email: "your.email@vt.edu",
+      resumeUrl: "",
+    });
+
+    /* =========================================================
+       DOM REFERENCES
+       ========================================================= */
+
+    const body = document.body;
+    const header = document.getElementById("site-header");
+    const navMenu = document.getElementById("nav-menu");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuIcon = document.getElementById("menu-icon");
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const resumeButton = document.getElementById("resume-button");
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+    const toast = document.getElementById("toast");
+    const navLinks = [...document.querySelectorAll(".nav-menu a")];
+    const sections = [...document.querySelectorAll("main section[id]")];
+    const socialPlaceholders = [
+      ...document.querySelectorAll(".social-placeholder"),
+    ];
+
+    let toastTimeoutId = null;
+
+    /* =========================================================
+       TOAST NOTIFICATIONS
+       ========================================================= */
+
+    function showToast(message) {
+      window.clearTimeout(toastTimeoutId);
+
+      toast.textContent = message;
+      toast.classList.add("visible");
+
+      toastTimeoutId = window.setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 3200);
+    }
+
+    /* =========================================================
+       HEADER SCROLL STATE
+       ========================================================= */
+
+    function updateHeaderState() {
+      header.classList.toggle("scrolled", window.scrollY > 24);
+    }
+
+    window.addEventListener("scroll", updateHeaderState, {
+      passive: true,
+    });
+
+    updateHeaderState();
+
+    /* =========================================================
+       MOBILE NAVIGATION
+       ========================================================= */
+
+    function setMenuState(isOpen) {
+      navMenu.classList.toggle("open", isOpen);
+      header.classList.toggle("menu-active", isOpen);
+      body.classList.toggle("menu-open", isOpen);
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuIcon.innerHTML = isOpen
+        ? `
+          <path d="M6 6l12 12"></path>
+          <path d="M18 6 6 18"></path>
+        `
+        : `
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        `;
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      setMenuState(!isOpen);
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenuState(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) {
+        setMenuState(false);
+      }
+    });
+
+    /* =========================================================
+       THEME
+       ========================================================= */
+
+    function getPreferredTheme() {
+      const savedTheme = localStorage.getItem("basel-site-theme");
+
+      if (savedTheme === "dark" || savedTheme === "light") {
+        return savedTheme;
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+
+      body.classList.toggle("dark-theme", isDark);
+
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme"
+      );
+
+      themeIcon.innerHTML = isDark
+        ? `
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3
+                   6.5 6.5 0 0 0 21 12.8Z"></path>
+        `
+        : `
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.42 1.42"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.42"></path>
+        `;
+    }
+
+    applyTheme(getPreferredTheme());
+
+    themeToggle.addEventListener("click", () => {
+      const newTheme = body.classList.contains("dark-theme")
+        ? "light"
+        : "dark";
+
+      localStorage.setItem("basel-site-theme", newTheme);
+      applyTheme(newTheme);
+    });
+
+    /* =========================================================
+       ACTIVE NAVIGATION LINK
+       ========================================================= */
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length === 0) {
+          return;
+        }
+
+        const activeSectionId = visibleEntries[0].target.id;
+
+        navLinks.forEach((link) => {
+          const isActive =
+            link.getAttribute("href") === `#${activeSectionId}`;
+
+          link.classList.toggle("active", isActive);
+
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      },
+      {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.05, 0.25, 0.5],
+      }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px",
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    /* =========================================================
+       RESUME PLACEHOLDER
+       ========================================================= */
+
+    resumeButton.addEventListener("click", () => {
+      if (!SITE_CONFIG.resumeUrl) {
+        showToast(
+          "Add your résumé PDF URL to SITE_CONFIG.resumeUrl before publishing."
+        );
+        return;
+      }
+
+      window.open(SITE_CONFIG.resumeUrl, "_blank", "noopener,noreferrer");
+    });
+
+    /* =========================================================
+       SOCIAL PLACEHOLDERS
+       ========================================================= */
+
+    socialPlaceholders.forEach((button) => {
+      button.addEventListener("click", () => {
+        showToast("Add your social profile link here when it is ready.");
+      });
+    });
+
+    /* =========================================================
+       CONTACT FORM
+       This creates a mailto link without requiring a backend.
+       ========================================================= */
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      const name = String(formData.get("name") || "").trim();
+      const senderEmail = String(formData.get("email") || "").trim();
+      const organization = String(
+        formData.get("organization") || ""
+      ).trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!name || !senderEmail || !message) {
+        formStatus.textContent =
+          "Please complete your name, email, and message.";
+        formStatus.classList.add("visible");
+        return;
+      }
+
+      if (SITE_CONFIG.email === "your.email@vt.edu") {
+        formStatus.textContent =
+          "The site owner must replace the placeholder email address before this form can send messages.";
+        formStatus.classList.add("visible");
+        return;
+      }
+
+      const subject = encodeURIComponent(
+        `Website inquiry from ${name}`
+      );
+
+      const bodyText = [
+        `Name: ${name}`,
+        `Email: ${senderEmail}`,
+        `Organization: ${organization || "Not provided"}`,
+        "",
+        "Message:",
+        message,
+      ].join("\n");
+
+      const mailtoUrl =
+        `mailto:${encodeURIComponent(SITE_CONFIG.email)}` +
+        `?subject=${subject}` +
+        `&body=${encodeURIComponent(bodyText)}`;
+
+      formStatus.textContent =
+        "Your email application is opening with the message prepared.";
+      formStatus.classList.add("visible");
+
+      window.location.href = mailtoUrl;
+    });
+
+    /* =========================================================
+       CURRENT YEAR
+       ========================================================= */
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
