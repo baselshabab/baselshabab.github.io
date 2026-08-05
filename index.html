@@ -229,9 +229,12 @@
        ========================================================= */
 
     .container {
-      width: min(calc(100% - 40px), var(--container-width));
-      margin-inline: auto;
-    }
+      width: min
+         calc(100% - clamp(32px, 7vw, 96px)),
+          var(--container-width)
+        );
+        margin-inline: auto;
+      }
 
     .section {
       padding: 104px 0;
@@ -2001,7 +2004,7 @@
       }
 
       .container {
-        width: min(calc(100% - 28px), var(--container-width));
+        width: min(calc(100% - 36px), var(--container-width));
       }
 
       .section {
