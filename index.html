@@ -2220,8 +2220,6 @@
                 <path d="m13 6 6 6-6 6"></path>
               </svg>
             </a>
-
-         
           </div>
 
           <ul class="hero__facts">
@@ -3765,7 +3763,6 @@
 
     const SITE_CONFIG = Object.freeze({
       email: "baselahmad@vt.edu",
-      resumeUrl: "basel-resume-2026.pdf",
     });
 
     /* =========================================================
@@ -3779,7 +3776,6 @@
     const menuIcon = document.getElementById("menu-icon");
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
-    const resumeButton = document.getElementById("resume-button");
     const contactForm = document.getElementById("contact-form");
     const formStatus = document.getElementById("form-status");
     const toast = document.getElementById("toast");
@@ -3990,17 +3986,6 @@
     /* =========================================================
        RESUME PLACEHOLDER
        ========================================================= */
-
-    resumeButton.addEventListener("click", () => {
-      if (!SITE_CONFIG.resumeUrl) {
-        showToast(
-          "Add your résumé PDF URL to SITE_CONFIG.resumeUrl before publishing."
-        );
-        return;
-      }
-
-      window.open(SITE_CONFIG.resumeUrl, "_blank", "noopener,noreferrer");
-    });
 
     /* =========================================================
        SOCIAL PLACEHOLDERS
