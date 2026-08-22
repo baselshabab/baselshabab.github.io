@@ -889,98 +889,212 @@
        8. RESEARCH AREAS
        ========================================================= */
 
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+  .research-tier-layout {
+  display: grid;
+  gap: 26px;
+}
 
-    .research-card {
-      position: relative;
-      min-height: 330px;
-      overflow: hidden;
-      padding: 30px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background: var(--color-surface);
-      box-shadow: var(--shadow-sm);
-      transition:
-        transform var(--transition-normal),
-        border-color var(--transition-normal),
-        box-shadow var(--transition-normal);
-    }
+/* PRIMARY RESEARCH */
 
-    .research-card:hover {
-      border-color: color-mix(
+.research-primary {
+  position: relative;
+  overflow: hidden;
+  padding: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-soft)
+    );
+  box-shadow: var(--shadow-lg);
+}
+
+.research-primary::before {
+  position: absolute;
+  top: -140px;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  content: "";
+}
+
+.research-primary::after {
+  position: absolute;
+  right: 120px;
+  bottom: -220px;
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgba(184, 115, 51, 0.22);
+  border-radius: 50%;
+  content: "";
+}
+
+.research-primary__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  align-items: end;
+  gap: 46px;
+}
+
+.research-tier-label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: color-mix(
+    in srgb,
+    var(--color-secondary) 16%,
+    transparent
+  );
+  color: var(--color-secondary-dark);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.research-primary .research-tier-label {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #dba165;
+}
+
+.research-primary h3 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.research-primary__lead {
+  max-width: 780px;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.12rem;
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.research-primary p:not(.research-primary__lead) {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.research-primary__facets {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  gap: 10px;
+}
+
+.research-primary__facets span {
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+/* SECONDARY + EMERGING */
+
+.research-secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.research-secondary-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.research-secondary-card:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--color-secondary) 50%,
+    var(--color-border)
+  );
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+}
+
+.research-secondary-card--emerging {
+  background:
+    linear-gradient(
+      145deg,
+      var(--color-surface),
+      color-mix(
         in srgb,
-        var(--color-secondary) 55%,
-        var(--color-border)
-      );
-      box-shadow: var(--shadow-md);
-      transform: translateY(-7px);
-    }
+        var(--color-accent) 7%,
+        var(--color-surface)
+      )
+    );
+}
 
-    .research-card::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 110px;
-      height: 110px;
-      border-radius: 0 0 0 100%;
-      background: color-mix(
-        in srgb,
-        var(--color-secondary) 9%,
-        transparent
-      );
-      content: "";
-    }
+.research-secondary-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.45rem;
+}
 
-    .research-card__number {
-      display: inline-flex;
-      margin-bottom: 48px;
-      color: var(--color-secondary-dark);
-      font-size: 0.82rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
-    }
+.research-secondary-card > p {
+  margin-bottom: 22px;
+}
 
-    .research-card h3 {
-      margin-bottom: 16px;
-      font-size: 1.35rem;
-    }
+.research-mini-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    .research-card p {
-      margin-bottom: 0;
-      font-size: 0.95rem;
-    }
+.research-mini-list li {
+  padding: 7px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+3. Add responsive behavior
 
-    .research-card__arrow {
-      position: absolute;
-      right: 26px;
-      bottom: 24px;
-      display: grid;
-      width: 38px;
-      height: 38px;
-      place-items: center;
-      border: 1px solid var(--color-border);
-      border-radius: 50%;
-      color: var(--color-secondary-dark);
-      transition:
-        background-color var(--transition-fast),
-        color var(--transition-fast),
-        transform var(--transition-fast);
-    }
+Inside your existing:
 
-    .research-card:hover .research-card__arrow {
-      background: var(--color-secondary);
-      color: #ffffff;
-      transform: rotate(45deg);
-    }
+@media (max-width: 1020px) {
 
-    .research-card__arrow svg {
-      width: 18px;
-      height: 18px;
-    }
+add:
+
+.research-primary__content {
+  grid-template-columns: 1fr;
+}
+
+.research-secondary-grid {
+  grid-template-columns: 1fr;
+}
 
     /* =========================================================
        9. METHODS
@@ -1943,6 +2057,33 @@
     }
 
     @media (max-width: 680px) {
+          .research-primary {
+      padding: 30px 22px;
+    }
+    
+    .research-primary h3 {
+      font-size: 2rem;
+    }
+    
+    .research-primary__facets {
+      display: grid;
+    }
+    
+    .research-primary__facets span {
+      text-align: center;
+    }
+    
+    .research-secondary-card {
+      padding: 26px 20px;
+    }
+    
+    .research-mini-list {
+      display: grid;
+    }
+    
+    .research-mini-list li {
+      text-align: center;
+    }
             .project-card__visual {
         min-height: 280px;
         padding: 16px;
@@ -2303,38 +2444,47 @@
         <div class="about-grid">
           <div class="about-copy reveal">
             <p>
-              I am a Ph.D. student in Mining &amp; Minerals Engineering at
-              Virginia Tech, specializing in wellbore integrity and subsurface
-              materials performance for underground hydrogen storage and
-              energy-transition applications.
+              I am a Ph.D. student in Mining &amp; Minerals Engineering at Virginia Tech,
+    specializing in wellbore integrity for underground hydrogen storage and the
+    performance of subsurface cementitious materials under energy-storage
+    conditions.
             </p>
 
             <p>
-              My research examines the mechanical, microstructural, and
-              chemical evolution of Class H wellbore cement under
-              high-pressure hydrogen exposure using field-retrieved formation
-              waters.
+            My doctoral research focuses on the mechanical, microstructural, and
+    chemical evolution of Class H wellbore cement under high-pressure hydrogen
+    exposure using field-retrieved formation waters. I am particularly
+    interested in cement degradation, pore-network evolution, hydrogen
+    transport pathways, and sealing performance in legacy wells associated
+    with depleted gas reservoirs.
             </p>
 
             <p>
-              I integrate experimental characterization—including
-              porosity–permeability measurements, tensile and compressive
-              strength testing, and fracture mechanics—with advanced
-              analytical techniques such as SEM-EDS, XRD, XRF, TGA, ICP-MS,
-              and micro-CT.
+            My work integrates mechanical testing and transport measurements with
+    advanced characterization techniques including SEM-EDS, XRD, XRF, TGA,
+    ICP-MS, and micro-CT to connect material-scale changes with long-term
+    wellbore performance.
             </p>
 
             <p>
-              My broader goal is to understand cement degradation, pore
-              network evolution, and hydrogen transport pathways that may
-              affect legacy wells in depleted gas reservoirs.
+            Beyond my primary doctoral research, I have worked on fracture-based
+    characterization of cemented paste backfill and am increasingly interested
+    in integrating computational modeling with experimental observations to
+    study subsurface material behavior across scales.
             </p>
 
             <p>
-              I enjoy working across mining, petroleum, geomechanics, and
-              materials-science disciplines to address technically complex
-              energy challenges with rigorous experimental evidence.
+           I also have applied experience in CO₂ storage techno-economics through the
+    SEG Evolve Carbon Solutions program, where I contributed to the evaluation
+    of offshore carbon-storage opportunities in offshore Texas.
             </p>
+            
+             <p>
+    I am interested in research and engineering roles where experimental
+    geomechanics, subsurface materials characterization, and data-driven
+    analysis can support hydrogen storage, well integrity, and broader
+    energy-transition technologies.
+  </p>
           </div>
 
           <aside class="about-sidebar" aria-label="Professional highlights">
@@ -2356,13 +2506,13 @@
                 </svg>
               </div>
 
-              <h3>Experimental research</h3>
+               <h3>Primary research</h3>
 
-              <p>
-                Laboratory investigation of cement performance under
-                representative subsurface chemical and pressure conditions.
-              </p>
-            </article>
+    <p>
+      Wellbore integrity and Class H cement performance for underground
+      hydrogen storage.
+    </p>
+  </article>
 
             <article class="info-card reveal reveal-delay-2">
               <div class="info-card__icon">
@@ -2383,13 +2533,13 @@
                 </svg>
               </div>
 
-              <h3>Quantitative analysis</h3>
+               <h3>Experimental characterization</h3>
 
-              <p>
-                Interpretation of multi-scale mechanical, chemical, imaging,
-                and transport data.
-              </p>
-            </article>
+    <p>
+      Mechanical testing, transport measurements, micro-CT, SEM-EDS, XRD,
+      XRF, TGA, and ICP-MS.
+    </p>
+  </article>
 
             <article class="info-card reveal reveal-delay-1">
               <div class="info-card__icon">
@@ -2409,13 +2559,14 @@
                 </svg>
               </div>
 
-              <h3>Interdisciplinary work</h3>
+             
+    <h3>Secondary research</h3>
 
-              <p>
-                Collaboration across mining, petroleum engineering,
-                geomechanics, and subsurface materials research.
-              </p>
-            </article>
+    <p>
+      Fracture-based characterization and mechanical behavior of cemented
+      paste backfill systems.
+    </p>
+  </article>
 
             <article class="info-card reveal reveal-delay-2">
               <div class="info-card__icon">
@@ -2433,14 +2584,14 @@
                 </svg>
               </div>
 
-              <h3>Energy transition</h3>
+                 <h3>Broader experience</h3>
 
-              <p>
-                Research supporting hydrogen storage, carbon sequestration,
-                and long-term well integrity.
-              </p>
-            </article>
-          </aside>
+    <p>
+      CO₂ storage techno-economics and interdisciplinary subsurface-energy
+      project work.
+    </p>
+  </article>
+</aside>
         </div>
       </div>
     </section>
@@ -2448,166 +2599,118 @@
     <!-- =====================================================
          RESEARCH
          ===================================================== -->
+    <!-- =====================================================
+     RESEARCH
+     ===================================================== -->
 
-    <section class="section section--muted" id="research">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__eyebrow">Research areas</span>
+<section class="section section--muted" id="research">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-heading__eyebrow">Research</span>
 
-          <h2>Core research themes</h2>
+      <h2>Research focus</h2>
+
+      <p>
+        My research centers on subsurface materials and well integrity for
+        underground energy storage, with a primary focus on the long-term
+        performance of wellbore cement under hydrogen exposure.
+      </p>
+    </div>
+
+    <div class="research-tier-layout">
+      <!-- PRIMARY RESEARCH -->
+
+      <article class="research-primary reveal">
+        <div class="research-tier-label">
+          Primary focus
+        </div>
+
+        <div class="research-primary__content">
+          <div>
+            <h3>
+              Wellbore Integrity for Underground Hydrogen Storage
+            </h3>
+
+            <p class="research-primary__lead">
+              Mechanical, microstructural, and chemical evolution of Class H
+              wellbore cement under cyclic high-pressure hydrogen exposure
+              using field-retrieved formation waters.
+            </p>
+
+            <p>
+              This work investigates how cement behavior evolves under
+              underground hydrogen storage conditions, with emphasis on
+              degradation mechanisms, sealing performance, pore-scale changes,
+              and potential hydrogen migration pathways relevant to legacy
+              wells in depleted gas reservoirs.
+            </p>
+          </div>
+
+          <div class="research-primary__facets">
+            <span>Cement degradation</span>
+            <span>Pore network evolution</span>
+            <span>Rock–cement interfaces</span>
+            <span>Hydrogen transport pathways</span>
+            <span>Legacy-well sealing</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- SECONDARY + EMERGING -->
+
+      <div class="research-secondary-grid">
+        <article class="research-secondary-card reveal">
+          <div class="research-tier-label">
+            Secondary
+          </div>
+
+          <h3>
+            Mechanical Behavior of Cemented Paste Backfill
+          </h3>
 
           <p>
-            My research connects material behavior at the microstructural
-            scale with the long-term performance of wells and subsurface
-            storage systems.
+            Fracture-based strength characterization of cemented paste backfill
+            systems, including work involving fracture initiation pressure and
+            backfill fracturing tools for evaluating material response and
+            failure behavior.
           </p>
-        </div>
 
-        <div class="research-grid">
-          <article class="research-card reveal">
-            <span class="research-card__number">01</span>
+          <ul class="research-mini-list">
+            <li>Fracture-based strength characterization</li>
+            <li>Fracture initiation pressure</li>
+            <li>Cemented paste backfill behavior</li>
+            <li>Backfill fracturing tools</li>
+          </ul>
+        </article>
 
-            <h3>Underground hydrogen storage</h3>
+        <article class="research-secondary-card research-secondary-card--emerging reveal">
+          <div class="research-tier-label">
+            Emerging
+          </div>
 
-            <p>
-              Evaluating material compatibility and transport behavior under
-              high-pressure hydrogen exposure in depleted reservoir
-              environments.
-            </p>
+          <h3>
+            Computational Modeling + Experimental Characterization
+          </h3>
 
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
+          <p>
+            A growing research direction focused on integrating computational
+            modeling with laboratory characterization to better connect
+            material-scale observations with transport, mechanical response,
+            and long-term subsurface performance.
+          </p>
 
-          <article class="research-card reveal reveal-delay-1">
-            <span class="research-card__number">02</span>
-
-            <h3>Wellbore integrity</h3>
-
-            <p>
-              Understanding how legacy well materials respond to new
-              pressure, chemical, and operational conditions associated with
-              subsurface energy storage.
-            </p>
-
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
-
-          <article class="research-card reveal reveal-delay-2">
-            <span class="research-card__number">03</span>
-
-            <h3>Cement degradation</h3>
-
-            <p>
-              Investigating the mechanical, microstructural, and chemical
-              evolution of Class H cement after exposure to hydrogen and
-              formation waters.
-            </p>
-
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
-
-          <article class="research-card reveal">
-            <span class="research-card__number">04</span>
-
-            <h3>Pore network evolution</h3>
-
-            <p>
-              Connecting changes in pore geometry, connectivity, porosity,
-              and permeability with potential hydrogen migration pathways.
-            </p>
-
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
-
-          <article class="research-card reveal reveal-delay-1">
-            <span class="research-card__number">05</span>
-
-            <h3>Rock–cement interfaces</h3>
-
-            <p>
-              Examining material interactions and interface performance that
-              influence sealing behavior and subsurface containment.
-            </p>
-
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
-
-          <article class="research-card reveal reveal-delay-2">
-            <span class="research-card__number">06</span>
-
-            <h3>CCUS and energy transition</h3>
-
-            <p>
-              Applying subsurface engineering principles to carbon
-              sequestration, hydrogen storage, and responsible repurposing of
-              existing infrastructure.
-            </p>
-
-            <span class="research-card__arrow" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 19 19 5"></path>
-                <path d="M9 5h10v10"></path>
-              </svg>
-            </span>
-          </article>
-        </div>
+          <ul class="research-mini-list">
+            <li>Experiment-informed modeling</li>
+            <li>Transport behavior</li>
+            <li>Mechanical response</li>
+            <li>Multiscale interpretation</li>
+          </ul>
+        </article>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+   
 
     <!-- =====================================================
          METHODS
