@@ -1166,6 +1166,20 @@
       font-weight: 700;
     }
 
+    .method-subgroup + .method-subgroup {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.method-subgroup h4 {
+  margin-bottom: 12px;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+    
     /* =========================================================
        10. EXPERIENCE
        ========================================================= */
@@ -2718,12 +2732,13 @@
         <div class="methods-intro reveal">
           <span class="section-heading__eyebrow">Technical capabilities</span>
 
-          <h2>Integrated experimental characterization</h2>
+          <h2>Integrated experimental and computational characterization</h2>
 
           <p>
-            I combine mechanical testing, transport measurements, imaging,
-            mineralogical analysis, and chemical characterization to evaluate
-            material evolution across multiple scales.
+             I combine mechanical testing, transport measurements, imaging,
+  mineralogical and chemical characterization, and computational tools
+  to evaluate material behavior and subsurface system performance across
+  multiple scales.
           </p>
 
           <a class="button button--outline" href="#contact">
@@ -2853,6 +2868,56 @@
               <li>Leaching behavior</li>
             </ul>
           </article>
+
+          <article class="method-group reveal">
+  <div class="method-group__header">
+    <span class="method-group__icon">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+        <path d="m7 9 3 3-3 3"></path>
+        <path d="M13 15h4"></path>
+      </svg>
+    </span>
+
+    <h3>Computational tools and data analysis</h3>
+  </div>
+
+  <div class="method-subgroup">
+    <h4>Programming and data analysis</h4>
+
+    <ul class="tag-list">
+      <li>Python</li>
+      <li>Pandas</li>
+      <li>NumPy</li>
+      <li>Matplotlib</li>
+      <li>OriginPro</li>
+      <li>ImageJ</li>
+      <li>Dragonfly</li>
+      <li>Profex</li>
+      <li>HighScore Plus</li>
+    </ul>
+  </div>
+
+  <div class="method-subgroup">
+    <h4>Engineering and modeling tools</h4>
+
+    <ul class="tag-list">
+      <li>Rocscience RS2</li>
+      <li>Pipesim</li>
+      <li>Prosper</li>
+      <li>Kingdom</li>
+    </ul>
+  </div>
+</article>
+          
         </div>
       </div>
     </section>
