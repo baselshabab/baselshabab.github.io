@@ -1080,21 +1080,6 @@
   font-size: 0.78rem;
   font-weight: 700;
 }
-3. Add responsive behavior
-
-Inside your existing:
-
-@media (max-width: 1020px) {
-
-add:
-
-.research-primary__content {
-  grid-template-columns: 1fr;
-}
-
-.research-secondary-grid {
-  grid-template-columns: 1fr;
-}
 
     /* =========================================================
        9. METHODS
@@ -1924,6 +1909,18 @@ add:
        ========================================================= */
 
     @media (max-width: 1020px) {
+       .research-primary__content {
+    grid-template-columns: 1fr;
+  }
+
+  .research-secondary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card,
+  .project-card--reverse {
+    grid-template-columns: 1fr;
+  }
       .project-card,
 .project-card--reverse {
   grid-template-columns: 1fr;
@@ -2420,7 +2417,7 @@ add:
               />
           </div>
         </div>
-
+    </div>
       <div class="scroll-indicator" aria-hidden="true">
         <span>Scroll</span>
         <span class="scroll-indicator__line"></span>
@@ -3761,8 +3758,7 @@ add:
               </button>
 
               <p class="form-note">
-                Replace the placeholder email address in the JavaScript before
-                publishing.
+                Submitting this form will open your default email application.
               </p>
 
               <p
@@ -4125,13 +4121,6 @@ add:
       if (!name || !senderEmail || !message) {
         formStatus.textContent =
           "Please complete your name, email, and message.";
-        formStatus.classList.add("visible");
-        return;
-      }
-
-      if (SITE_CONFIG.email === "baselahmad@vt.edu") {
-        formStatus.textContent =
-          "The site owner must replace the placeholder email address before this form can send messages.";
         formStatus.classList.add("visible");
         return;
       }
