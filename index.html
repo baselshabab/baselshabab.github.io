@@ -1869,7 +1869,14 @@
   background: var(--color-surface);
   box-shadow: var(--shadow-md);
 }
+.project-card--text-only {
+  grid-template-columns: 1fr;
+}
 
+.project-card--text-only .project-card__content {
+  width: 100%;
+}
+    
 .project-card--reverse .project-card__visual {
   order: 2;
 }
@@ -3125,31 +3132,7 @@
 
       <!-- PROJECT 2: CEMENTED PASTE BACKFILL -->
 
-<article class="project-card reveal">
-  <div class="project-card__visual">
-    <div class="project-card__image-placeholder">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M4 18h16"></path>
-        <path d="M6 15 9 6l3 9 3-6 3 6"></path>
-      </svg>
-
-      <strong>Project image placeholder</strong>
-
-      <span>
-        Add a CPB specimen, ultrasonic testing setup, or fracturing-tool image
-        later.
-      </span>
-    </div>
-  </div>
-
+<article class="project-card project-card--text-only reveal">
   <div class="project-card__content">
     <div class="project-card__meta">
       <span class="project-card__status">
