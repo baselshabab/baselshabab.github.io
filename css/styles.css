@@ -581,7 +581,7 @@ HERO
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 42px;
+  margin-bottom: 22px;
 }
 
 .hero__facts {
@@ -1728,6 +1728,10 @@ RESEARCH PROJECTS
   width: 100%;
 }
 
+.project-card--reverse {
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+}
+
 .project-card--reverse .project-card__visual {
   order: 2;
 }
@@ -2196,5 +2200,126 @@ RESPONSIVE DESIGN
     opacity: 1;
     pointer-events: auto;
     transform: none;
+  }
+}
+
+/* Introduction and contact actions */
+.hero__profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 30px;
+}
+
+.hero__profiles a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  color: #dba165;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.hero__profiles a:hover {
+  color: #ffffff;
+}
+
+.profile-facts {
+  margin: 0;
+}
+
+.profile-facts dt {
+  margin-top: 20px;
+  color: var(--color-secondary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.profile-facts dd {
+  margin: 5px 0 0;
+  color: var(--color-text-muted);
+}
+
+.project-card__links {
+  margin-top: 24px;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-copy > .copy-status {
+  margin: 12px 0 20px;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.copy-email-fallback {
+  margin-bottom: 24px;
+}
+
+.copy-email-fallback label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.copy-email-fallback input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Native disclosure keeps the full training record available without JavaScript. */
+.training-details {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.training-details summary {
+  padding: 22px 26px;
+  cursor: pointer;
+  color: var(--color-text);
+  font-weight: 750;
+}
+
+.training-details summary::marker {
+  color: var(--color-secondary-dark);
+}
+
+.training-details__hint {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.training-details__content {
+  padding: 0 24px 24px;
+}
+
+@media (max-width: 680px) {
+  .contact-actions {
+    display: grid;
+  }
+
+  .training-details summary {
+    padding: 20px;
+  }
+
+  .training-details__content {
+    padding: 0 14px 20px;
   }
 }

@@ -197,6 +197,31 @@
     document.querySelector(".publication-tabs__buttons").hidden = false;
   }
 
+  function initializeCopyEmail() {
+    const button = document.getElementById("copy-email");
+    const status = document.getElementById("copy-email-status");
+    const fallback = document.getElementById("copy-email-fallback");
+    const address = document.getElementById("email-address");
+
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      status.textContent = "";
+      try {
+        await navigator.clipboard.writeText(SITE_CONFIG.email);
+        fallback.hidden = true;
+        status.textContent = "Email address copied.";
+      } catch {
+        fallback.hidden = false;
+        address.focus();
+        address.select();
+        status.textContent = "Automatic copying is unavailable. Copy the selected address below.";
+      } finally {
+        button.disabled = false;
+      }
+    });
+    button.hidden = false;
+  }
+
   // Prepare a draft in the visitor's email application; no backend is required.
   function initializeContactForm() {
     const form = document.getElementById("contact-form");
@@ -222,7 +247,7 @@
         "Message:",
         message,
       ].join("\n");
-      status.textContent = "Your email application is opening with the message prepared.";
+      status.textContent = "Opening an email draft. Review and send it in your email application. If it does not open, use the email address above.";
       status.classList.add("visible");
       window.location.href = `mailto:${SITE_CONFIG.email}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
     });
@@ -264,6 +289,7 @@
   initializeTheme();
   initializeNavigation();
   initializePublications();
+  initializeCopyEmail();
   initializeContactForm();
   initializeScrollState();
   document.getElementById("current-year").textContent = new Date().getFullYear();
